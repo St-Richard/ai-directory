@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import AIGrid from '../components/AIGrid';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const aiTools = [
+  {
+    name: 'ChatGPT',
+    description: 'Advanced language model for natural conversations and content generation',
+    category: 'Language Models',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg',
+    url: 'https://chat.openai.com'
+  },
+  {
+    name: 'DALL-E',
+    description: 'AI system that creates realistic images and art from natural language descriptions',
+    category: 'Image Generation',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg',
+    url: 'https://labs.openai.com'
+  },
+  {
+    name: 'Midjourney',
+    description: 'AI art generator that creates unique and artistic images from text descriptions',
+    category: 'Image Generation',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg',
+    url: 'https://www.midjourney.com'
+  },
+  {
+    name: 'Claude',
+    description: 'Advanced AI assistant for writing, analysis, and coding tasks',
+    category: 'Language Models',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg',
+    url: 'https://claude.ai'
+  },
+  {
+    name: 'Stable Diffusion',
+    description: 'Open-source image generation model for creating diverse artistic content',
+    category: 'Image Generation',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/stability.svg',
+    url: 'https://stability.ai'
+  },
+  {
+    name: 'GitHub Copilot',
+    description: 'AI-powered code completion tool that helps developers write code faster',
+    category: 'Development',
+    image: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg',
+    url: 'https://github.com/features/copilot'
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="AI Directory - Discover the Best AI Tools">
+  <div class="container">
+    <Header client:load />
+    <main class="main-content">
+      <AIGrid client:load tools={aiTools} />
+    </main>
+  </div>
 </Layout>
+
+<style>
+  .container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 10px;
+    }
+  }
+</style>
